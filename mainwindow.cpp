@@ -9,11 +9,11 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QTimer *timer = new QTimer(this);
+    QTimer *timer = new QTimer(this); //таймер
     connect(timer, SIGNAL(timeout()),this, SLOT(Aclock())); //соединяем таймер с нашим слотом
     connect(this, SIGNAL(TextC(const QString)), ui->lineEdit, SLOT(setText(const QString))); //соединяем написанный сигнал с системным слотом в QLineEdit
 
-    timer->start(); //запуск времени
+    timer->start(500); //таймер для перезапуска функции(слота) вывода времени и проверки будильника
 }
 
 void MainWindow::Aclock()
